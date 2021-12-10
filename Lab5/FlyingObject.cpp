@@ -1,5 +1,8 @@
 #include "FlyingObject.h"
 
+int FlyingObject::MaxSpeedFlyingObject = 0;
+int FlyingObject::Count = 0;
+
 int FlyingObject::GetFlightAltitude()
 {
 	return speed;
@@ -91,29 +94,6 @@ void FlyingObject::Condition()
 	cout << engine << " and " << lights << "." << endl;
 }
 
-FlyingObject::FlyingObject(int speed = -1, int flightAltitude = -1, int rangeFlight = -1, int powerEngine = -1, int numberCrew = -1, string model = "NoName",
-	string title = "NoName") : FlyingObject(speed, flightAltitude, rangeFlight, powerEngine, numberCrew, model, title)
-{
-	Count = 0;
-	MaxSpeedFlyingObject = 0;
-	this->speed = speed;
-	this->flightAltitude = flightAltitude;
-	this->rangeFlight = rangeFlight;
-	this->powerEngine = powerEngine;
-	this->numberCrew = numberCrew;
-	this->model = model;
-	this->title = title;
-	Count++;
-	if (speed > MaxSpeedFlyingObject) MaxSpeedFlyingObject = speed;
-}
-
-Aircraft::Aircraft(int speed, int flightAltitude, int rangeFlight, int powerEngine, int numberCrew, string model, int wingspan, int numberEngine,
-	string title = "NoName")
-{
-	this->wingspan = wingspan;
-	this->numberEngine = numberEngine;
-}
-
 int Aircraft::GetWingspan()
 {
 	return wingspan;
@@ -147,16 +127,7 @@ void Aircraft::ShowObjectCharacteristics()
 	cout << "Wingspan: " << wingspan << " m;" << "\nNumber of engine: " << numberEngine << ";" << endl;
 }
 
-CivilAircraft::CivilAircraft(int speed, int flightAltitude, int rangeFlight, int powerEngine, int numberCrew, string model, string title, int wingspan,
-	int numberEngine, int numberEmergencyExit, int numberSeats, int numberPilots, bool buisnessClass) : Aircraft(speed, flightAltitude,
-		rangeFlight, powerEngine, numberCrew, model, wingspan, numberEngine, title)
-{
-	this->numberSeats = numberSeats;
-	this->numberEmergencyExit = numberEmergencyExit;
-	this->numberPilots = numberPilots;
-	this->buisnessClass = buisnessClass;
-	if (numberSeats > MaxSeats) MaxSeats = numberSeats;
-}
+int CivilAircraft::MaxSeats = 0;
 
 int CivilAircraft::GetNumberSeats()
 {
@@ -206,13 +177,7 @@ void CivilAircraft::Condition()
 	cout << "Plane ready take off: " << readyTakeOff << "." << endl; 
 }
 
-WarAircraft::WarAircraft(int speed, int flightAltitude, int rangeFlight, int powerEngine, int numberCrew, string model, string title, int wingspan,
-	int numberEngine, int power) : Aircraft(speed, flightAltitude,
-		rangeFlight, powerEngine, numberCrew, model, wingspan, numberEngine, title)
-{
-	this->power = power;
-	if (power > MaxPower) MaxPower = power;
-}
+int WarAircraft::MaxPower = 0;
 
 int WarAircraft::GetPower()
 {
@@ -231,11 +196,6 @@ void WarAircraft::Condition()
 	cout << "Weapons are ready to shoot" << "." << endl;
 }
 
-Hellicopter::Hellicopter(int speed, int flightAltitude, int rangeFlight, int powerEngine, int numberCrew, string model,
-	string title, int bladeRotationSpeed) : FlyingObject(speed, flightAltitude, rangeFlight, powerEngine, numberCrew, model, title)
-{
-	this->bladeRotationSpeed = bladeRotationSpeed;
-}
 
 int Hellicopter::GetBladeRotationSpeed()
 {
@@ -265,11 +225,6 @@ void Hellicopter::Condition()
 	cout << "Tail rotor is"<< tailRotor << "." << endl;
 }
 
-Rocket::Rocket(int speed, int flightAltitude, int rangeFlight, int powerEngine, int numberCrew, string model,
-	string title, int height) : FlyingObject(speed, flightAltitude, rangeFlight, powerEngine, numberCrew, model, title)
-{
-	this->height = height;
-}
 
 int Rocket::GetHeight()
 {
