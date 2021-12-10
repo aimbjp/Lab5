@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FlyingObject.cpp" />
     <ClCompile Include="Lab5.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FlyingObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
