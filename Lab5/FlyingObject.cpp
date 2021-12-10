@@ -165,7 +165,7 @@ void CivilAircraft::ShowObjectCharacteristics()
 	string buisnessClass;
 	if (this->buisnessClass == 0) buisnessClass = "No";
 	else buisnessClass = "Yes";
-
+	cout << "///////CivilAircraft///////" << endl;
 	Aircraft::ShowObjectCharacteristics();
 	cout << "Number of emergency exits: " << numberEmergencyExit << ";" << "\nNumber of seats: " << numberSeats << ";" << "\nNumber of pilots: "
 		<< numberPilots << "\nBuisness class: " << buisnessClass << ";" << endl;
@@ -174,7 +174,7 @@ void CivilAircraft::ShowObjectCharacteristics()
 void CivilAircraft::Condition()
 {
 	Aircraft::Condition();
-	cout << "Plane ready take off: " << readyTakeOff << "." << endl; 
+	cout << "Plane ready take off: " << readyTakeOff << "." << endl;
 }
 
 int WarAircraft::MaxPower = 0;
@@ -186,6 +186,7 @@ int WarAircraft::GetPower()
 
 void WarAircraft::ShowObjectCharacteristics()
 {
+	cout << "///////WarAircraft///////" << endl;
 	Aircraft::ShowObjectCharacteristics();
 	cout << "Power: " << power << " power;" << endl;
 }
@@ -196,7 +197,6 @@ void WarAircraft::Condition()
 	cout << "Weapons are ready to shoot" << "." << endl;
 }
 
-
 int Hellicopter::GetBladeRotationSpeed()
 {
 	return bladeRotationSpeed;
@@ -204,6 +204,7 @@ int Hellicopter::GetBladeRotationSpeed()
 
 void Hellicopter::ShowObjectCharacteristics()
 {
+	cout << "///////Hellicopter///////" << endl;
 	FlyingObject::ShowObjectCharacteristics();
 	cout << "Blade rotation speed: " << bladeRotationSpeed << " per minute;" << endl;
 }
@@ -222,7 +223,7 @@ void Hellicopter::SetTailRotor()
 void Hellicopter::Condition()
 {
 	FlyingObject::Condition();
-	cout << "Tail rotor is"<< tailRotor << "." << endl;
+	cout << "Tail rotor is" << tailRotor << "." << endl;
 }
 
 
@@ -244,6 +245,7 @@ void Rocket::SetOverload()
 
 void Rocket::ShowObjectCharacteristics()
 {
+	cout << "///////Rocket///////" << endl;
 	FlyingObject::ShowObjectCharacteristics();
 	cout << "Height of rocket: " << height << " m;" << endl;
 }
@@ -251,5 +253,5 @@ void Rocket::ShowObjectCharacteristics()
 void Rocket::Condition()
 {
 	FlyingObject::Condition();
-	cout << "Overload is "<< overload << "." << endl; 
+	cout << "Overload is " << overload << "." << endl;
 }
